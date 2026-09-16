@@ -43,3 +43,38 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+nama = str(input("input nama? "))
+berat = float(input("input berat? "))
+layanan = input("Mau pilih layanan apa?" \
+"a. reguler" \
+"b. express" \
+"(pilih a atau b)")
+while layanan != "a" and layanan != "b":
+    print("hanya pilih a atau b!")
+    layanan = (input("Mau pilih layanan apa?" \
+    "a. reguler" \
+    "b. express" \
+    "(pilih a atau b)"))
+    if layanan == "a" or layanan == "b":
+        break
+def hitung_biaya(berat, layanan):
+    biaya = 0
+
+    if berat < 0:
+        print("Beratnya tidak valid")
+    elif 0 < berat <= 1:
+        biaya = 10000
+    elif berat <= 5:
+        biaya = 20000
+    elif berat > 5:
+        biaya = 20000 + (berat-5) * 5000
+    if layanan == "b":
+        biaya *= 1.5
+    return biaya
+
+sapaan = f'Hallo,  {nama}'
+print(sapaan)
+hasil_akhir = hitung_biaya(berat, layanan)
+total = f'Biaya yang diperlukan adalah {hasil_akhir}'
+print(total)
