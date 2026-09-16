@@ -46,3 +46,33 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+jumlah_jenis = float(input("Anda beli berapa jenis barang? "))
+total = 0
+def harga_total(harga, jumlah):
+    total = harga * jumlah
+    return total
+def hitung_diskon(total_harga):
+    if total_harga >= 250.0:
+        return 0.85
+    elif total_harga >= 500.0:
+        return 0.90
+    elif total_harga >= 1000.0:
+        return 0.95
+    else:
+        return 1
+while True:
+    harga = float(input("Harga barang: "))
+    jumlah = int(input("jumlahnya? "))
+    total += harga_total(harga, jumlah)
+    jumlah_jenis -= 1
+    if jumlah_jenis == 0:
+        diskon = hitung_diskon(total)
+        harga_diskon = total * diskon
+        print(f'Harga yang harus dibayarkan adalah: {harga_diskon}')
+        break
+    else:
+        continue
+
+    
+    
