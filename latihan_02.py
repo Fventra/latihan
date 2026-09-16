@@ -48,3 +48,50 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+saldo_awal = int(input("Masukkan saldo awal: "))
+saldo = saldo_awal
+def tampilkan_menu():
+    print( "Selamat datang di ATM" \
+    "1. cek saldo" \
+    "2. setor uang" \
+    "3. tarik uang" \
+    "4. keluar" \
+    )
+    menu = (input("pilih"))
+    return int(menu)
+
+def cek_saldo():
+    return saldo
+
+def setor_uang(saldo, jumlah):
+    print(f"anda menyetor {jumlah}")
+    return saldo + jumlah
+
+def tarik_uang(saldo, jumlah):
+    print(f"Anda menarik {jumlah}")
+    return saldo - jumlah
+
+while True :
+
+    pilihan = tampilkan_menu()    
+    if pilihan == 1:
+        print(cek_saldo())
+        continue
+
+    elif pilihan == 2:
+        jumlah_setor = int(input("Masukkan nominal: "))
+        saldo = (setor_uang(saldo, jumlah_setor))
+        print(saldo)
+        continue
+
+    elif pilihan == 3:
+        jumlah_tarik = int(input("Masukkan nominal: "))
+        saldo = (tarik_uang(saldo, jumlah_tarik))
+        print(saldo)
+        continue
+
+    else:
+        break
+    
+    
