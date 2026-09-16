@@ -47,3 +47,40 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+def tentukan_grade(nilai):
+    
+    if nilai >= 85:
+        return "A"
+    if 75 <= nilai < 85:
+        return "B"
+    if 65 <= nilai < 75:
+        return "C"
+    else:
+        return "tidak lulus"
+nilai_total = []
+jumlah_siswa = 0
+while True:
+    nilai = int(input("masukkan nilai: "))
+    print(f' Nilai kamu adalah: {tentukan_grade(nilai)}')
+    nilai_total.append(nilai)
+    jumlah_siswa += 1
+    conf = int(input("Apakaha masih ada nilai yang ingin diimput?:" \
+    "1. Ya" \
+    "2. Tidak"))
+    if conf == 2:
+        rata = sum(nilai_total) / jumlah_siswa
+        nilai_max = max(nilai_total)
+        nilai_min = min(nilai_total)
+        print(rata)
+        print(nilai_max)
+        print(nilai_min)
+        print(jumlah_siswa)
+        break
+    else:
+        continue
+    
+
+
+
+    
