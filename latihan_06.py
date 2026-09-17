@@ -47,3 +47,47 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+jumlah_peserta = int(input("Berapa jumlah pesertanya: "))
+
+daftar_nama = []
+daftar_nilai = []
+kelulusan = []
+
+
+def hitung_nilai(n1, n2, n3):
+
+    return  (n1 + n2 + n3) / 3
+
+for i in range(jumlah_peserta):
+
+    nama = str(input(f"Masukkan nama peserta {i+1}: "))
+    daftar_nama.append(nama)
+    n_1 = int(input("Penilaian nilai juri 1: "))
+    n_2 = int(input("Penilaian nilai juri 2: "))
+    n_3 = int(input("Penilaian nilai juri 3: "))
+
+    rata2 = hitung_nilai(n_1, n_2, n_3)
+
+    daftar_nilai.append(rata2)
+     
+    if rata2 >= 75:
+           
+        kelulusan.append("Lulus")
+
+    else:
+        kelulusan.append("Tidak Lulus")
+
+    print(f"Nilai buat peserta {i+1} adalah {rata2}")
+
+for n, v, k  in zip(daftar_nama, daftar_nilai, kelulusan):
+    print(n, v, k)
+
+gabungan = list(zip(daftar_nama, daftar_nilai, kelulusan))
+
+tinggi = max(gabungan, key=lambda x: x[1])
+
+daftar_nama, daftar_nilai, kelulusan = tinggi
+
+print("Nilai tertinggi adalah:") 
+print(daftar_nama, daftar_nilai, kelulusan)
