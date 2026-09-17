@@ -45,3 +45,38 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+
+def cek_tebakan(tebakan, rahasia):
+        
+        if ( tebakan < rahasia):
+
+            print("Tebakan terlalu kecil!")
+            return -1
+        
+        if (tebakan > rahasia):
+
+            print("Tebakan terlalu besar!")
+            return 1
+        
+        if (tebakan == rahasia ):
+
+            print("Tebakan Tepat!")
+            return 0
+            
+        
+
+angka_rahasia = 40
+
+tebakan_a = int(input("Masukkan tebakan anda: "))
+
+while True:
+
+    hasil = cek_tebakan(tebakan_a, angka_rahasia)
+
+    if hasil != 0:
+          
+        tebakan_a = int(input("Jawaban salah!, coba lagi: "))
+        
+    else:
+        break
