@@ -51,70 +51,70 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
-jumlah_kursi = int(input("Masukkan kursi total yang tersedia: "))
+# ============================================================
+# LATIHAN 07
+# Studi Kasus: Sistem Reservasi Kursi Bioskop
+# ============================================================
 
-kursi = []
-status_kursi = []
+jumlah_kursi = int(input("Masukkan jumlah kursi: "))
+
+# Membuat semua kursi dalam keadaan kosong
+kursi = ["Kosong"] * jumlah_kursi
 
 
+def tampilkan_kursi(kursi):
+    for i, status in enumerate(kursi):
+        print(f"Kursi {i + 1}: {status}")
 
-def tampilkan_kursi(jumlah_kursi):
-    for _ in range(jumlah_kursi):
-        kursi.append("Tersedia")
 
-    for index, status in enumerate(kursi):
-                status_kursi.append(f'kursi {index+1} {status}')
+def pesan_kursi(kursi, nomor):
+    indeks = nomor - 1
 
-    return (f'Kursi {index+1} {status}')
+    if kursi[indeks] == "Kosong":
+        kursi[indeks] = "Terisi"
+        print(f"Kursi {nomor} berhasil dipesan.")
+    else:
+        print(f"Kursi {nomor} sudah terisi.")
 
-def pesan_kursi(nomor):
-    status_kursi.remove(((nomor)-1))
-    status_kursi.insert(((nomor)-1), f'kursi {nomor} terisi')
-    return status_kursi(nomor)
 
-    
-    
+def batalkan_kursi(kursi, nomor):
+    indeks = nomor - 1
+
+    if kursi[indeks] == "Terisi":
+        kursi[indeks] = "Kosong"
+        print(f"Reservasi kursi {nomor} berhasil dibatalkan.")
+    else:
+        print(f"Kursi {nomor} masih kosong.")
+
+
 while True:
-
-    
-    print('''
-
-Selamat datang di XXI !!!
-1. Lihat Kursi
-2. Pesan Kursi
-3. Batalkan Kursi
+    print("""
+===== MENU BIOSKOP =====
+1. Lihat kursi
+2. Pesan kursi
+3. Batalkan kursi
 4. Keluar
+""")
 
-''')
+    pilihan = int(input("Pilih menu: "))
 
-    opsi = int(input("Ingin buka apa? "))
-    if opsi == 1:
+    if pilihan == 1:
+        tampilkan_kursi(kursi)
 
-        print(tampilkan_kursi(jumlah_kursi))
+    elif pilihan == 2:
+        nomor = int(input("Masukkan nomor kursi: "))
+        pesan_kursi(kursi, nomor)
 
-    if opsi == 2:
-        
-        nomor = int(input("Beli kursi nomor berapa :"))
-        pesan_kursi(nomor)
+    elif pilihan == 3:
+        nomor = int(input("Masukkan nomor kursi: "))
+        batalkan_kursi(kursi, nomor)
 
-         
+    elif pilihan == 4:
+        print("Program selesai.")
+        break
 
-    
-
-
-
-
-
-
-
-
-
-
-
-#Loop kalau ingin meminta ketersediaan kursi
-for index, status in enumerate(kursi):
-    status_kursi.append(f'kursi {index} {status}')
-    print(f'Kursi {index+1} {status}')
+    else:
+        print("Pilihan tidak valid.")
 
 
 
