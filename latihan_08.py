@@ -59,3 +59,42 @@
 # ============================================================
 
 # Tulis kode Python kamu di bawah ini
+
+#inuput awal
+jumlah_barang = int(input("Jumlah Barang: "))
+list_nama = []
+list_jumlah = []
+test = 0
+
+while test != jumlah_barang:
+    nama = input("Nama barang: ")
+    list_nama.append(nama)
+    jumlah = input("Jumlah barang: ")
+    list_jumlah.append(jumlah)
+    test += 1
+
+zipped = list(zip(list_jumlah, list_nama))
+
+for jumlah, nama in zipped:
+    print(f'{nama}: {jumlah}')
+
+
+
+
+
+def menu():
+    print('''---------------
+    1. lihat stok
+    2. Tambah stok
+    3. Kurangi stok
+    4. Keluar
+    ---------------''')
+    menu_t = int(input("Pilih Menu: "))
+    return menu_t
+menu()
+while menu() != 4:
+    if stock <= 5:
+        print("Stok hampir habis")
+    if menu() == 1:
+        print(stock)
+
