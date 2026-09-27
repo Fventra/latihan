@@ -56,12 +56,39 @@ def main():
         menu = int(input("Ingin pilih apa: "))
         if menu == 1:
             lihat_stok()
+            konfirmasi = int(input("""
+            kembali ke menu?
+            1. Ya
+            2. Tidak
+            """))
+            if konfirmasi == 1:
+                continue
+            else:
+                break
         elif menu == 2:
             tambah_stok()
             lihat_stok()
+            konfirmasi = int(input("""
+            kembali ke menu?
+            1. Ya
+            2. Tidak
+            """))
+            if konfirmasi == 1:
+                continue
+            else:
+                break
         elif menu == 3:
             kurangi_stok()
             lihat_stok()
+            konfirmasi = int(input("""
+            kembali ke menu?
+            1. Ya
+            2. Tidak
+            """))
+            if konfirmasi == 1:
+                continue
+            else:
+                break
         else:
             break
 
